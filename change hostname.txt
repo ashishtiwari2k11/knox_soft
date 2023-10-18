@@ -1,0 +1,1 @@
+sudo sed -i 's/admin1-ThinkPad-Yoga-260/va-alert/g' /etc/hosts
