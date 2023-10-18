@@ -1,0 +1,5 @@
+Uninstall the printer you just installed. Confirm you have the packages hplip and hplip-gui installed. If not install them from a terminal:
+
+sudo apt install hplip hplip-gui
+
+sudo hp-setup -i

@@ -1,0 +1,8 @@
+@echo off
+sc stop W32Time
+W32tm /config /syncfromflags:manual /manualpeerlist:"google.com.com"                   (with domain)
+W32tm /config /syncfromflags:manual /manualpeerlist:"samay1.nic.in"          (without domain)
+W32tm /config /reliable:yes
+sc start W32Time
+W32tm /config /update
+W32tm /resync
