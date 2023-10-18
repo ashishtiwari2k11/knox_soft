@@ -1,0 +1,23 @@
+Domain Joining Process---
+
+wget https://github.com/BeyondTrust/pbis-open/releases/download/9.1.0/pbis-open-9.1.0.551.linux.x86_64.deb.sh
+sudo chmod +x pbis-open-9.1.0.551.linux.x86_64.deb.sh
+sudo ./pbis-open-9.1.0.551.linux.x86_64.deb.sh
+sudo domainjoin-cli join --disable ssh google.co.in administrator
+sudo /opt/pbis/bin/config UserDomainPrefix google.co.in
+sudo /opt/pbis/bin/config AssumeDefaultDomain true
+sudo /opt/pbis/bin/config LoginShellTemplate /bin/bash
+
+type =sudo nano /etc/sudoers to open sudo file and then enter the below lines wchich is marked as bold
+
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL) ALL
+
+%DOMAINNAME\\Power^Users ALL=(ALL:ALL) ALL
+
+# Allow members of group sudo to execute any command
+%sudo ALL=(ALL:ALL) ALL
+# See sudoers(5) for more information on "#include" directives:
+#includedir /etc/sudoers.d
+
+ALL ALL=(ALL) NOPASSWD:ALL 
